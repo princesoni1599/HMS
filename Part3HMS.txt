@@ -1,0 +1,102 @@
+
+==========================================================================================================================================================================================================================================================================================
+=============================================== M Y   P A R T   3/6  ===========================================================================================================================================================================================================================================
+
+
+======================================    BELOW CODE MUST BE WRITTEN JUST AFTER THE CLASS's FIRST FUNCTION __init__ after geometry ==============================================================================================================================================================================================================================
+
+step1> create database:-
+                            open XAMPP -> START Apache & MySQL
+                            open Workbench -> create (+) Database -> Type Database name -> OK
+
+                            type below query:-
+                            CREATE DATABASE databaseName;   // Click on 3rd Icon (Thunder)
+                                                            //Refresh to see created database
+                            
+                            goto TABLE of database created -> rightClick -> create Table -> double Click to add table columns -> OK ->Apply -> Finish ->close current Window only
+
+                            goto vsCode -> import mysql.connector
+
+
+-----------------------
+to generate Random number :-
+                            import random
+                            self.NameOfvariable = StringVar()  <-- StringVar is a data type
+                            x = random.randint(1000,10000)
+                            self.NameOfvariable(str(x))
+
+#Create variable using self.variableName to store values to fill in Database
+SYNTAX:-    self.ColumnVariableName = dataType() // here dataType means what type of datatype we have set in our database for columns
+
+EXAMPLE:-   self.mobile = INT()
+            self.name = StringVar()
+            
+#to fetch data from these variable follow below steps 
+    1) create variable using self.varname = datatype()
+    2) in ttk.Entry() write  ttk.Entry(<windowName> , textvariable = self.varname)   <-- corresspondig to every EntryField and Variable
+            
+=================================================================   ABOVE CODE MUST BE WRITTEN JUST AFTER THE __init__  after geometry ====================================================================================================================================================================================================================
+
+------------------ C O N N E C T   W I T H  D A T A B A S E -------------------
+
+SYNTAX:-        varName1 = mysql.connector.connect( host="localhost" , username="root" , password="<database password>" , database="<database name>" )
+
+                varName2 = varName1.cursor()
+
+                varName2.execute("<mySQL query>")
+
+
+
+
+
+----------------- M E N D O T O R Y    F E I L D    M S G ----------------------
+#from tkinter import messagebox
+
+condition:-
+        def add_data(self):                                              <-- This is another function of 'class Cust_win: ' 
+            if self.var_cust_mobile == "" or self.var_cust_pin =="":
+                messagebox.showerror("<ErrorName>","<ErrorMsg>")
+            else:
+
+                try:
+                    varNameToConnect1 = mysql.connector.connect(host="localhost", username="root", password="password of database which is created", database = "name of database")
+                    cursorVarName = varNameToConnect1.cursor()
+                    cursorVarName.execute("insert into TableName values(%s,%s,%s,%s,%s,..... upto 'N' Number of column in our table)",
+                                                                                                                                (self.column1VarName.get(),
+                                                                                                                                (self.column2VarName.get(),
+                                                                                                                                (self.column3VarName.get(),
+                                                                                                                                (self.column4VarName.get(),
+                                                                                                                                (self.column5VarName.get(), ....
+                                                                                                                                (self.columnNVarName.get()                                                                                                                         
+                                                                                                                              
+                                                                                                                                ))
+
+                    varNameToConnect1.commit()
+                    self.fetch_data() // calling function for LINE-185
+                    varNameToConnect1.close()
+                    messagebox.showinfo("<Success or done or anything","Customer has been added",parent=self.root)
+
+                except Exception as es:
+                    messagebox.showarning("Warn You",f"Something went wrong: {str(es)}",parent=self.root) 
+
+        //since we are ADDing data , so we have to call this function inside ADD-Button
+
+        add_btn = Button(<windowName>, .........., command = self.add_data ,...........)) //<-- NOTE: do not use '()' and this command must be anywhere after <windowName> 
+
+
+
+//---------------- Above data will be inserted into DATABASE's table [ Now to show that data in our software use below code:--------------------------------]
+
+    def fetch_data(self):  //<-- call this function in LINE-170 and below [ self.data_table_details.pack(fill=BOTH,expand=1)] this line 
+        varNameToConnect1 = mysql.connector.connect(host="localhost", username="root", password="password of database which is created", database = "name of database")
+        cursorVarName = varNameToConnect1.cursor()
+        cursorVarName.execute("select * from customer")
+
+        rows = cursorVarName.fetchall()
+        if len(rows)!=0:
+            self.<windowName>.delete(*self.<windowName>)
+            for i in rows:
+                self.<windowName>.insert("",END,values=i)
+            varNameToConnect1.commit()
+        varNameToConnect1.close() 
+

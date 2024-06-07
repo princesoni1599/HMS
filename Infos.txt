@@ -1,0 +1,30 @@
+Python: (Bhopal) Online vs Offline Price calculator:
+
+<varieties->  < --''-- >   < --''-- >   < --''-- >
+
+--------------------------- I N P U T------------------------------------------
+
+route<start - end> , <food-type>  <Restaurent-name>
+
+
+
+
+--------------------------- C A L C U L A T I O N------------------------------
+
+1) input route in google map and fetch distance using API
+2) on the basis of fuel-cost and mileage, calculate total cost of going by own VS zomato cost(deliver to home)
+|
+|----> in addition we can give TIME as output (onFoot vs Zomato(or any other food delivery application))
+
+
+3)check price of that food
+
+
+
+
+
+-------------------------- O U T P U T ----------------------------------------
+
+distance , optimal coice(onFoot / Zomato)  ,  Interface + API  
+
+
