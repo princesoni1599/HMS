@@ -7,13 +7,13 @@ class HMS:
     def __init__(self,root):
         self.root = root
         self.root.title("Hostel Management System")
-        self.root.iconbitmap(r"C:\Users\STARNET\OneDrive\Desktop\desktop\Hostel Management System (MP)/Images/Logo.ico")              # self.root.iconbitmap('path') add icon instead of feather 
+        self.root.iconbitmap(r"/Users/princesoni/Desktop/HMS/Experiments/Images/Logo.jpg")              # self.root.iconbitmap('path') add icon instead of feather 
         self.root.geometry("1550x800+0+0") #do not use spaces in between [ERROR]
 
 
         #==================== F I R S T   I M A G E =====================================================
-        img1 = Image.open(r"C:\Users\STARNET\OneDrive\Desktop\desktop\Hostel Management System (MP)/Images/HostelMain.jpg")
-        img1 = img1.resize((1550,140),Image.ANTIALIAS)
+        img1 = Image.open(r"/Users/princesoni/Desktop/HMS/Experiments/Images/HostelMain.jpg")
+        img1 = img1.resize((1550,140),Image.Resampling.LANCZOS)
         self.photoimg1 = ImageTk.PhotoImage(img1)
 
         #Another way to do above step is:
@@ -25,8 +25,8 @@ class HMS:
 
         #==================== L O G O =====================================================
 
-        logoImg = Image.open(r"C:\Users\STARNET\OneDrive\Desktop\desktop\Hostel Management System (MP)/Images/Logo.png")
-        logoImg = logoImg.resize((140,140), Image.ANTIALIAS)
+        logoImg = Image.open(r"/Users/princesoni/Desktop/HMS/Experiments/Images/Logo.jpg")
+        logoImg = logoImg.resize((140,140), Image.Resampling.LANCZOS)
         self.logoImage = ImageTk.PhotoImage(logoImg)
 
         lblLogo = Label(self.root, image = self.logoImage,bd=2,relief=RIDGE)
@@ -75,8 +75,8 @@ class HMS:
 
         #==================== R I G H T - S I D E  I M A G E =====================================================
 
-        rgt_img = Image.open(r"C:\Users\STARNET\OneDrive\Desktop\desktop\Hostel Management System (MP)/Images/HostelGallery.jpg")
-        rgt_img = rgt_img.resize((1535,590),Image.ANTIALIAS)
+        rgt_img = Image.open(r"/Users/princesoni/Desktop/HMS/Experiments/Images/HostelGallery.jpg")
+        rgt_img = rgt_img.resize((1535,590),Image.Resampling.LANCZOS)
         self.rgtImage = ImageTk.PhotoImage(rgt_img)
 
         lblRgtImg = Label(mainFrame,image=self.rgtImage,bd=4,relief=RIDGE)

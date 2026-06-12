@@ -51,8 +51,8 @@ class Cust_win:
 
 
         #=========================== L O G O ============================
-        cust_win_logo = Image.open(r"C:\Users\STARNET\OneDrive\Desktop\desktop\Hostel Management System (MP)\Images\Logo.png")
-        cust_win_logo = cust_win_logo.resize((60,50),Image.ANTIALIAS)
+        cust_win_logo = Image.open(r"/Users/princesoni/Desktop/HMS/Experiments/Images/Logo.jpg")
+        cust_win_logo = cust_win_logo.resize((100, 100), Image.Resampling.LANCZOS)
         self.LogoImage = ImageTk.PhotoImage(cust_win_logo)
 
         lblCust_win_logo = Label(self.root, image=self.LogoImage, bd=4, relief=RIDGE)
@@ -421,6 +421,8 @@ class Cust_win:
         conn2 = conn.cursor()
 
         conn2.execute("select * from customer where "+str(self.varSearch.get())+" LIKE '%"+str(self.textSearch.get())+"%'")  #Write carefully [check spaces]
+        
+        
 
         #showing data of matched entry <combobox>
         rows = conn2.fetchall()

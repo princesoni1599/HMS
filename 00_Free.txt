@@ -1,2 +1,2 @@
-conn = mysql.connector.connect(host="localhost",username="root",password="",database="management")
+conn = mysql.connector.connect(host="localhost",username="root",password="123456789",database="college")
 conn2 = conn.cursor()
