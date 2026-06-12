@@ -12,8 +12,6 @@
 </p>
 <h2>Demo Video</h2>
 
-<p align="center">
-  <a href="https://github.com/princesoni1599/HMS/blob/main/Experiments/videos/demo_hms.mov">
-        🎥 Watch Demo Video
-      </a>
-</p>
+<a href="https://www.youtube.com/watch?v=P-Yb-eDNiDc">
+  <img src="https://github.com/princesoni1599/HMS/blob/main/Experiments/Images/demo1.png" width="800" alt="Watch Demo">
+</a>
