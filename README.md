@@ -14,8 +14,6 @@
 
 <p align="center">
   <a href="https://github.com/princesoni1599/HMS/blob/main/Experiments/videos/demo_hms.mov">
-    <img src="https://raw.githubusercontent.com/USERNAME/REPOSITORY/main/images/demo-thumbnail.png"
-         width="800"
-         alt="Watch Demo">
-  </a>
+        🎥 Watch Demo Video
+      </a>
 </p>
